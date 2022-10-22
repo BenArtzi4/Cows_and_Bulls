@@ -5,14 +5,14 @@ public class Logic {
 
     static int validNumberOfDigits = 4;
     private String solution;
-    private ArrayList<String> guesses;
+    private final ArrayList<String> guesses;
     int guessesNumber;
 
 
     public Logic()
     {
         this.solution = randomNumber();
-        this.guesses = new ArrayList<String>();
+        this.guesses = new ArrayList<>();
         this.guessesNumber = 0;
     }
 
@@ -30,10 +30,6 @@ public class Logic {
 
     public int getGuessesNumber() {
         return guessesNumber;
-    }
-
-    public void setGuessesNumber(int guessesNumber) {
-        this.guessesNumber = guessesNumber;
     }
 
     public void addOneToGuessesNumber()
@@ -126,7 +122,7 @@ public class Logic {
         {
             return "You guessed the right number\nWell Done ";
         }
-        return "Your guess is: " + guess + " Bulls: " + bulls + " Cows: " + cows;
+        return "Your guess is: " + guess + " --> " + bulls + " Bulls and " + cows +" Cows";
     }
 
     // Get string in length of 4 and return if all the chars are different from each other
@@ -152,6 +148,15 @@ public class Logic {
         this.solution = randomNumber();
         this.guesses.clear();
         this.guessesNumber = 0;
+    }
+
+    public String returnGuesses()
+    {
+        String stringGuesses = "";
+        for (String guess : this.guesses) {
+            stringGuesses = stringGuesses.concat(guess);
+        }
+        return stringGuesses;
     }
 
 
