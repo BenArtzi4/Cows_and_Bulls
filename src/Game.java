@@ -20,7 +20,7 @@ public class Game {
             rightGuess = false;
             while (!rightGuess)
             {
-                gameMessage = "Hello, Please enter your guess\nNumber of guesses:" + game.guessesNumber +"\nYour previous guesses\n " + game.returnGuesses();
+                gameMessage = "Hello, Please enter your guess\nNumber of guesses:" + game.getGuessesNumber() +"\nYour previous guesses\n " + game.returnGuesses();
                 guess = JOptionPane.showInputDialog(null, gameMessage, title, JOptionPane.PLAIN_MESSAGE);
                 // If X button pressed we will quit
                 if (guess == null)

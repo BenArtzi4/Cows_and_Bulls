@@ -3,10 +3,10 @@ import java.util.Random;
 
 public class Logic {
 
-    static int validNumberOfDigits = 4;
+    private static final int validNumberOfDigits = 4;
     private String solution;
     private final ArrayList<String> guesses;
-    int guessesNumber;
+    private int guessesNumber;
 
 
     public Logic()
@@ -18,10 +18,6 @@ public class Logic {
 
     public String getSolution() {
         return solution;
-    }
-
-    public ArrayList<String> getGuesses() {
-        return guesses;
     }
 
     public void addToGuesses(String guess) {
