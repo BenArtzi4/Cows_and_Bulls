@@ -2,25 +2,50 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Logic {
-    String userGuess;
-    int bullCount = 0;
-    int cowsCount = 0;
-    int guessNumber = 0;
-    ArrayList<String> guesses = new ArrayList<String>();
 
-    /*
-    This method shows the user the numbers of the guesses that took him to reach the right answer
-    Additionally, the user will be asked if they wish to play the game again\
-     */
-    public void gameEnd()
+    static int validNumberOfDigits = 4;
+    private String solution;
+    private ArrayList<String> guesses;
+    int guessesNumber;
+
+
+    public Logic()
     {
-
+        this.solution = randomNumber();
+        this.guesses = new ArrayList<String>();
+        this.guessesNumber = 0;
     }
+
+    public String getSolution() {
+        return solution;
+    }
+
+    public ArrayList<String> getGuesses() {
+        return guesses;
+    }
+
+    public void addToGuesses(String guess) {
+        this.guesses.add(guess + "\n");
+    }
+
+    public int getGuessesNumber() {
+        return guessesNumber;
+    }
+
+    public void setGuessesNumber(int guessesNumber) {
+        this.guessesNumber = guessesNumber;
+    }
+
+    public void addOneToGuessesNumber()
+    {
+        this.guessesNumber++;
+    }
+
 
     /*
     Generates number according to the game rules
      */
-    public String randomNumber()
+    static String randomNumber()
     {
         Random rand = new Random();
         int digitOne, digitTwo, digitThree, digitFour;
@@ -54,8 +79,6 @@ public class Logic {
      */
     public boolean guessValidation(String guess){
         // Validate the length of the guess
-        int validNumberOfDigits = 4;
-
 
         if (guess.length() != validNumberOfDigits)
         {
@@ -77,8 +100,33 @@ public class Logic {
      */
     public String guessComparison(String guess)
     {
-        return "Hello";
-    // Use concat for the return string
+        int bulls = 0;
+        int cows = 0;
+
+        for (int i = 0 ; i < validNumberOfDigits ; i++)
+        {
+            if (guess.charAt(i) == solution.charAt(i))
+            {
+                bulls++;
+            }
+            else
+            {
+                for (int j = 0 ; j < validNumberOfDigits ; j++)
+                {
+                    if (guess.charAt(i) == solution.charAt(j))
+                    {
+                        cows++;
+                        break;
+
+                    }
+                }
+            }
+        }
+        if (bulls == 4)
+        {
+            return "You guessed the right number\nWell Done ";
+        }
+        return "Your guess is: " + guess + " Bulls: " + bulls + " Cows: " + cows;
     }
 
     // Get string in length of 4 and return if all the chars are different from each other
@@ -98,6 +146,14 @@ public class Logic {
         }
         return true;
     }
+
+    public void restart()
+    {
+        this.solution = randomNumber();
+        this.guesses.clear();
+        this.guessesNumber = 0;
+    }
+
 
 
 
