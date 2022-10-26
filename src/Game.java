@@ -49,6 +49,8 @@ public class Game
                  */
                 if (comparison.charAt(3) != 'r')
                 {
+                    // Adding the correct guess to the number of guesses
+                    game.addOneToGuessesNumber();
                     /*
                     Displaying a message to the user detailing the number of attempts it took him to guess the correct number,
                     the history of guesses and an offer to play again
@@ -78,7 +80,6 @@ public class Game
                 {
                     game.addOneToGuessesNumber();
                     game.addToGuesses(comparison);
-                    System.out.println("Solution: " + game.getSolution());
                 }
             }
         }

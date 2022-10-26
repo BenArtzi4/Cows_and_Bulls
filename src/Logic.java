@@ -3,9 +3,13 @@ import java.util.Random;
 
 public class Logic {
 
-    private static final int validNumberOfDigits = 4;
+    // An attribute that holds the number of digits at a valid guess
+    private final int validNumberOfDigits = 4;
+    // An attribute that holds the correct number that the user needs to guess
     private String solution;
+    // An attribute that holds the guess history and result of the user
     private final ArrayList<String> guesses;
+    // An attribute that holds the number that the user guessed
     private int guessesNumber;
 
 
@@ -16,23 +20,37 @@ public class Logic {
         this.guessesNumber = 0;
     }
 
-    public String getSolution() {
+    /*
+    A method that returns the correct solution
+     */
+    public String getSolution()
+    {
         return solution;
     }
 
-    public void addToGuesses(String guess) {
+    /*
+    A method that adds a guess to the history of guesses
+     */
+    public void addToGuesses(String guess)
+    {
         this.guesses.add(guess + "\n");
     }
 
-    public int getGuessesNumber() {
+    /*
+    A method that returns the number of guesses up to the current state of the game
+    */
+    public int getGuessesNumber()
+    {
         return guessesNumber;
     }
 
+    /*
+    A method that adds 1 to the number of guesses after the user guesses
+     */
     public void addOneToGuessesNumber()
     {
         this.guessesNumber++;
     }
-
 
     /*
     Generates number according to the game rules
@@ -44,6 +62,7 @@ public class Logic {
         String guess;
         digitOne = rand.nextInt(10);
         digitTwo = rand.nextInt(10);
+        // Choose a random number from 0 to 9 (inclusive) and checking that all digits are different from each other
         while (digitTwo == digitOne)
         {
             digitTwo = rand.nextInt(10);
@@ -69,9 +88,9 @@ public class Logic {
     Return True if the guess if valid, else False
     User guess length must be 4 and contain only digits and each digit can appear maximum once
      */
-    public boolean guessValidation(String guess){
+    public boolean guessValidation(String guess)
+    {
         // Validate the length of the guess
-
         if (guess.length() != validNumberOfDigits)
         {
             return false;
@@ -84,17 +103,20 @@ public class Logic {
                 return false;
             }
         }
+        // Checking using a method whether all digits are different from each other
         return validDifferentDigits(guess);
     }
 
     /*
     This method get the number that the user wrote and return the number of Cows and Bulls accordingly
+    Also returns the result as a string
      */
     public String guessComparison(String guess)
     {
         int bulls = 0;
         int cows = 0;
 
+        // Checking digits that are in the right place
         for (int i = 0 ; i < validNumberOfDigits ; i++)
         {
             if (guess.charAt(i) == solution.charAt(i))
@@ -103,17 +125,18 @@ public class Logic {
             }
             else
             {
+                // Checking whether there are digits that are in the solution but are in the wrong place
                 for (int j = 0 ; j < validNumberOfDigits ; j++)
                 {
                     if (guess.charAt(i) == solution.charAt(j))
                     {
                         cows++;
                         break;
-
                     }
                 }
             }
         }
+        //If the four digits are in the correct place then the answer is correct
         if (bulls == 4)
         {
             return "You guessed the right number\nWell Done ";
@@ -146,16 +169,14 @@ public class Logic {
         this.guessesNumber = 0;
     }
 
+    // This method resets the data in preparation for a new game
     public String returnGuesses()
     {
         String stringGuesses = "";
-        for (String guess : this.guesses) {
+        for (String guess : this.guesses)
+        {
             stringGuesses = stringGuesses.concat(guess);
         }
         return stringGuesses;
     }
-
-
-
-
 }
