@@ -4,7 +4,7 @@ Welcome to the  Cows and Bulls game program, written in Java with a GUI implemen
 
 In this game, the program selects a four-digit number (with no repetitions) and the user tries to guess the selected number. For each guess, the program displays the number along with the following information:
 
-* Bulss: The number of digits in the guess that match the corresponding digits in the original number.
+* Buls: The number of digits in the guess that match the corresponding digits in the original number.
 * Cows: The number of digits in the guess that appear in the original number but are not in the correct location.
 
 ## To play the Hit Ball game:
