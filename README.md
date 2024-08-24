@@ -1,16 +1,20 @@
 # Cows and Bulls Program
 
-Welcome to the  Cows and Bulls game program, written in Java with a GUI implemented using JavaFX!
+Welcome to the **Cows and Bulls** game, developed in Java with a GUI using JavaFX!
 
-In this game, the program selects a four-digit number (with no repetitions) and the user tries to guess the selected number. For each guess, the program displays the number along with the following information:
+## Game Overview
 
-* Buls: The number of digits in the guess that match the corresponding digits in the original number.
-* Cows: The number of digits in the guess that appear in the original number but are not in the correct location.
+The objective of the game is to guess a randomly selected four-digit number with no repeating digits. For each guess, the program provides feedback:
 
-## To play the Hit Ball game:
+- **Bulls**: The number of digits that are correct and in the correct position.
+- **Cows**: The number of digits that are correct but in the wrong position.
 
-1. Download the program files and open them in a Java development environment with support for JavaFX.
-2. Compile and run the program.
-3. Follow the prompts on the screen to enter your guesses for the selected four-digit number.
-4. The program will display the number of exact hits and injuries for each guess.
-5. The game ends when you correctly guess the selected four-digit number.
+## How to Play
+
+1. **Download** the program files and open them in a Java development environment that supports JavaFX.
+2. **Compile and run** the program.
+3. **Follow the prompts** on the screen to enter your four-digit guesses.
+4. After each guess, the program will display the number of Bulls and Cows.
+5. The game ends when you correctly guess the four-digit number.
+
+Enjoy the challenge and have fun guessing!
